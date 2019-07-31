@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 data.json
 output.csv
-
+.DS_Store
+e

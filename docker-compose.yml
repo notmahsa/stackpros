@@ -1,0 +1,18 @@
+version: '3'
+services:
+  processor:
+    image: processor
+    build:
+      context: processor/.
+      dockerfile: Dockerfile
+  listener:
+    image: listener
+    build:
+      context: listener/.
+      dockerfile: Dockerfile
+    ports:
+      - 8001:8001
+    environment:
+      - PROCESSOR_ENDPOINT=http://processor:8000
+    depends_on:
+      - processor
